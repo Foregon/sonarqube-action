@@ -3,7 +3,6 @@
 set -e
 
 echo ${GITHUB_REPOSITORY#*/}
-echo ${PWD##*/}
 
 if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
 	EVENT_ACTION=$(jq -r ".action" "${GITHUB_EVENT_PATH}")
@@ -20,10 +19,10 @@ else
 fi
 
 sonar-scanner \
+	-Dsonar.projectKey=${GITHUB_REPOSITORY#*/} \
+	-Dsonar.sources=. \
 	-Dsonar.host.url=${INPUT_HOST} \
 	-Dsonar.projectBaseDir=${INPUT_PROJECTBASEDIR} \
-	-Dsonar.projectKey=${GITHUB_REPOSITORY#*/} \
 	-Dsonar.login=${INPUT_LOGIN} \
-	-Dsonar.sources=. \
 	-Dsonar.sourceEncoding=UTF-8
 
