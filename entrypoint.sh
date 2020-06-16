@@ -18,11 +18,8 @@ fi
 
 sonar-scanner \
 	-Dsonar.host.url=${INPUT_HOST} \
-	-Dsonar.projectKey=${PWD##*/} \
-	-Dsonar.projectBaseDir=${INPUT_PROJECTBASEDIR} \
+	-Dsonar.projectKey=${PWD} \
 	-Dsonar.login=${INPUT_LOGIN} \
-	-Dsonar.password=${INPUT_PASSWORD} \
 	-Dsonar.sources=. \
-	-Dsonar.sourceEncoding=UTF-8 \
-	${SONAR_PASSWORD}
+	-Dsonar.sourceEncoding=UTF-8
 
