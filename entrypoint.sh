@@ -22,7 +22,6 @@ sonar-scanner \
 	-Dsonar.projectKey=${GITHUB_REPOSITORY#*/} \
 	-Dsonar.sources=. \
 	-Dsonar.host.url=${INPUT_HOST} \
-	-Dsonar.projectBaseDir=${INPUT_PROJECTBASEDIR} \
 	-Dsonar.login=${INPUT_LOGIN} \
 	-Dsonar.sourceEncoding=UTF-8
 
