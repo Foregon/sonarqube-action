@@ -20,8 +20,10 @@ fi
 
 sonar-scanner \
 	-Dsonar.projectKey=${GITHUB_REPOSITORY#*/} \
+	-Dsonar.projectName=${GITHUB_REPOSITORY#*/} \
 	-Dsonar.sources=. \
 	-Dsonar.host.url=${INPUT_HOST} \
 	-Dsonar.login=${INPUT_LOGIN} \
+	-Dsonar.projectBaseDir=${INPUT_PROJECTBASEDIR} \
 	-Dsonar.sourceEncoding=UTF-8
 
