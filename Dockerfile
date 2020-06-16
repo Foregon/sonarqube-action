@@ -10,6 +10,7 @@ LABEL repository="https://github.com/Foregon/sonarqube-action"
 LABEL homepage="https://github.com/Foregon/sonarqube-action"
 LABEL maintainer="Foregon"
 
+RUN apk add jq
 RUN npm config set unsafe-perm true && \
   npm install --silent --save-dev -g typescript@3.5.2 && \
   npm config set unsafe-perm false
