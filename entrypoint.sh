@@ -16,8 +16,9 @@ else
 	SONAR_PASSWORD="${INPUT_PASSWORD}"
 fi
 
-[ -z "${INPUT_LINTCOMMAND}"] && ${INPUT_LINTCOMMAND}
-[ -z "${INPUT_TESTCOMMAND}"] && ${INPUT_TESTCOMMAND}
+npm install
+[[ -z "${INPUT_LINTCOMMAND}"]] && ${INPUT_LINTCOMMAND}
+[[ -z "${INPUT_TESTCOMMAND}"]] && ${INPUT_TESTCOMMAND}
 
 sonar-scanner \
 	-Dsonar.projectKey=${GITHUB_REPOSITORY#*/} \
