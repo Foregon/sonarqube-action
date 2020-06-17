@@ -21,3 +21,9 @@ inputs:
   password:
     description: 'Password that goes with the sonar.login username. This should be left blank if an authentication token is being used.'
     required: false
+  lintcommand:
+    description: 'Comand to execute lint command and save report'
+    required: false
+  testcommand:
+    description: 'Command to execute tets and save report'
+    required: false

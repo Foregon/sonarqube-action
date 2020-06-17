@@ -18,6 +18,19 @@ else
 	SONAR_PASSWORD="${INPUT_PASSWORD}"
 fi
 
+echo "${PWD}"
+ls
+echo "lintcommand: ${INPUT_LINTCOMMAND}"
+echo "testcommand: ${INPUT_TESTCOMMAND}"
+
+if [[-z "${INPUT_LINTCOMMAND}"]]; then
+    ${INPUT_LINTCOMMAND}
+fi
+
+if [[-z "${INPUT_TESTCOMMAND}"]]; then
+    ${INPUT_TESTCOMMAND}
+fi
+
 sonar-scanner \
 	-Dsonar.projectKey=${GITHUB_REPOSITORY#*/} \
 	-Dsonar.projectName=${GITHUB_REPOSITORY#*/} \
