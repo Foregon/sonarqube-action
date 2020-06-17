@@ -27,3 +27,6 @@ inputs:
   testcommand:
     description: 'Command to execute tets and save report'
     required: false
+  customcommand:
+    description: 'Custom command to execute if necessary'
+    required: false

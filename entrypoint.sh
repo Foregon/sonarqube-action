@@ -16,7 +16,10 @@ else
 	SONAR_PASSWORD="${INPUT_PASSWORD}"
 fi
 
-npm install
+[[ -n "${INPUT_LINTCOMMAND}" ]] || [[ -n "${INPUT_TESTCOMMAND}" ]] && npm install
+
+[[ -n "${INPUT_CUSTOMCOMMAND}" ]] && ${INPUT_CUSTOMCOMMAND}
+
 [[ -n "${INPUT_LINTCOMMAND}" ]] && ${INPUT_LINTCOMMAND}
 
 [[ -n "${INPUT_TESTCOMMAND}" ]] && ${INPUT_TESTCOMMAND}
