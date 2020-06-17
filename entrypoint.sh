@@ -17,9 +17,9 @@ else
 fi
 
 npm install
-[[ -z "${INPUT_LINTCOMMAND}" ]] && ${INPUT_LINTCOMMAND}
+[[ -n "${INPUT_LINTCOMMAND}" ]] && ${INPUT_LINTCOMMAND}
 
-[[ -z "${INPUT_TESTCOMMAND}" ]] && ${INPUT_TESTCOMMAND}
+[[ -n "${INPUT_TESTCOMMAND}" ]] && ${INPUT_TESTCOMMAND}
 
 sonar-scanner \
 	-Dsonar.projectKey=${GITHUB_REPOSITORY#*/} \
