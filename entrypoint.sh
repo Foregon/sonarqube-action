@@ -2,8 +2,6 @@
 
 set -e
 
-echo ${GITHUB_REPOSITORY#*/}
-
 if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
 	EVENT_ACTION=$(jq -r ".action" "${GITHUB_EVENT_PATH}")
 	if [[ "${EVENT_ACTION}" != "opened" ]]; then
@@ -18,16 +16,11 @@ else
 	SONAR_PASSWORD="${INPUT_PASSWORD}"
 fi
 
-echo "${PWD}"
-ls
-echo "lintcommand: ${INPUT_LINTCOMMAND}"
-echo "testcommand: ${INPUT_TESTCOMMAND}"
-
-if [[-z "${INPUT_LINTCOMMAND}"]]; then
+if [[ -z "${INPUT_LINTCOMMAND}"]]; then
     ${INPUT_LINTCOMMAND}
 fi
 
-if [[-z "${INPUT_TESTCOMMAND}"]]; then
+if [[ -z "${INPUT_TESTCOMMAND}"]]; then
     ${INPUT_TESTCOMMAND}
 fi
 
