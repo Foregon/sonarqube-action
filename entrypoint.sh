@@ -16,13 +16,8 @@ else
 	SONAR_PASSWORD="${INPUT_PASSWORD}"
 fi
 
-if [[ -z "${INPUT_LINTCOMMAND}"]]; then
-    ${INPUT_LINTCOMMAND}
-fi
-
-if [[ -z "${INPUT_TESTCOMMAND}"]]; then
-    ${INPUT_TESTCOMMAND}
-fi
+[ -z "${INPUT_LINTCOMMAND}"] && ${INPUT_LINTCOMMAND}
+[ -z "${INPUT_TESTCOMMAND}"] && ${INPUT_TESTCOMMAND}
 
 sonar-scanner \
 	-Dsonar.projectKey=${GITHUB_REPOSITORY#*/} \
